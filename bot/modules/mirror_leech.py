@@ -21,7 +21,7 @@ from bot.helper.mirror_utils.download_utils.aria2_download import add_aria2c_dow
 from bot.helper.mirror_utils.download_utils.clonner import start_clone
 from bot.helper.mirror_utils.download_utils.direct_link_generator import direct_link_generator
 from bot.helper.mirror_utils.download_utils.gd_downloader import add_gd_download
-from bot.helper.mirror_utils.download_utils.mega_downloader import add_mega_download
+#from bot.helper.mirror_utils.download_utils.mega_downloader import add_mega_download
 from bot.helper.mirror_utils.download_utils.qbit_downloader import add_qb_torrent
 from bot.helper.mirror_utils.download_utils.telegram_downloader import TelegramDownloadHelper
 from bot.helper.mirror_utils.rclone_utils.list import RcloneList
@@ -329,8 +329,6 @@ Check here all <a href='https://rclone.org/flags/'>RcloneFlags</a>.
             await start_clone(link, listener)
         else:
             await add_gd_download(link, path, listener, name)
-    elif is_mega_link(link):
-        await add_mega_download(link, f'{path}/', listener, name)
     elif isQbit:
         await add_qb_torrent(link, path, listener, ratio, seed_time)
     else:
